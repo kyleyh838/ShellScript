@@ -35,6 +35,7 @@ WantedBy=multi-user.target" > "$file_to_edit"
     echo "Web-UI访问地址http://ip:8088，默认用户名密码 admin adminadmin"
 
 else
-    echo "当前不是root用户，无法执行脚本，请切换root用户后重新执行。"
+    echo 
+    echo "Error:当前不是root用户，无法执行脚本，请切换root用户后重新执行。"
     exit 1
 fi
