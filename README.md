@@ -3,5 +3,5 @@
 
 ## qbittorrent-nox 4.3.9
 ```
-bash <(curl -s https://github.com/kyleyh838/ShellScript/raw/main/qbittorrent-nox/start.sh)
+bash <(curl -s https://raw.githubusercontent.com/kyleyh838/ShellScript/main/qbittorrent-nox/start.sh)
 ```
