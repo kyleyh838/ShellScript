@@ -2,7 +2,7 @@
 
 clear
 echo "欢迎使用qbittorrent-nox 4.3.9一键安装脚本"
-echo "脚本GitHub开源地址：https://github.com/kyleyh838/"
+echo "脚本GitHub开源地址：https://github.com/kyleyh838/ShellScript"
 
 sudo apt update -y && sudo apt upgrade -y
 sudo apt-get install software-properties-common -y
