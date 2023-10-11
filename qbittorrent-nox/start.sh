@@ -3,7 +3,7 @@
 clear
 echo "欢迎使用qbittorrent-nox 4.3.9一键安装脚本"
 echo "请确认已切换root用户执行脚本"
-echo "脚本GitHub开源地址：https://github.com/kyleyh838/ShellScript"
+echo "一键脚本合集GitHub开源地址：https://github.com/kyleyh838/ShellScript"
 
 if [ $(id -u) -eq 0 ]; then
     sudo apt update -y && sudo apt upgrade -y
