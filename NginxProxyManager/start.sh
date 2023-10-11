@@ -8,13 +8,12 @@ echo "NPM安装依赖Docker & Docker-compose，请确认是否已安装"
 
 if [ $(id -u) -eq 0 ]; then
     echo "请选择需要执行的操作"
-	echo "1.安装NPM"
-	echo "2.更新NPM"
-	echo "3.卸载NPM"
-	echo "退出脚本请输入任意字符"
+    echo "1.安装NPM"
+    echo "2.更新NPM"
+    echo "3.卸载NPM"
+    echo "退出脚本请输入任意字符"
 	
-	read choice
-
+    read choice
     case $choice in
       1)
         if command -v docker &> /dev/null; then
@@ -31,27 +30,27 @@ if [ $(id -u) -eq 0 ]; then
             echo "正在安装NginxProxyManager，请稍等。。。"
             mkdir -p /root/data/docker_data/npm
             cd /root/data/docker_data/npm
-			if ss -tln | grep -q ':80 '; then
-			    echo "Error:80端口已被占用"
-			    echo "请输入未被占用的端口号"
-				read port1
-			else
-			    port1=80
-			fi
-			if ss -tln | grep -q ':81 '; then
-			    echo "Error:81端口已被占用"
-				echo "请输入未被占用的端口号"
-				read port2
-			else
-			    port2=81
-			fi
-			if ss -tln | grep -q ':443 '; then
-			    echo "Error:443端口已被占用"
-				echo "请输入未被占用的端口号"
-				read port3
-			else
-			    port3=443
-			fi
+            if ss -tln | grep -q ':80 '; then
+                echo "Error:80端口已被占用"
+                echo "请输入未被占用的端口号"
+                read port1
+            else
+                port1=80
+            fi
+            if ss -tln | grep -q ':81 '; then
+                echo "Error:81端口已被占用"
+                echo "请输入未被占用的端口号"
+                read port2
+            else
+                port2=81
+            fi
+            if ss -tln | grep -q ':443 '; then
+                echo "Error:443端口已被占用"
+                echo "请输入未被占用的端口号"
+                read port3
+            else
+                port3=443
+            fi
             file_to_edit="docker-compose.yml"
             echo "version: '3'
 services:
@@ -68,15 +67,14 @@ services:
             docker-compose up -d
             clear
             echo "恭喜安装成功"
-			echo "访问地址:http://ip:$port2"
-			echo "默认用户名密码:admin@example.com changeme"
-			exit 0
+            echo "访问地址:http://ip:$port2"
+            echo "默认用户名密码:admin@example.com changeme"
+            exit 0
         else
             echo "Error:$docker_installed，$docker_compose_installed"
             echo "是否运行Docker&Docker-compose安装脚本？(y/n):"
-
+	    
             read choice1
-
             case $choice1 in
               y)
                 bash <(curl -s https://raw.githubusercontent.com/kyleyh838/ShellScript/main/Docker/start.sh)
@@ -84,43 +82,43 @@ services:
               *)
                 exit 0
               ;;
-			esac
+            esac
         fi
       ;;
-	  2)
+      2)
         directory="/root/data/docker_data/npm"
         if [ -d "$directory" ]; then
             echo "正在更新NginxProxyManager，请稍等。。。"
-		    cd /root/data/docker_data/npm
-		    docker-compose down
-		    cp -r /root/data/docker_data/npm /root/data/docker_data/npm.archive  # 万事先备份，以防万一
-		    docker-compose pull
-		    docker-compose up -d
-		    docker image prune
-		    echo "完成，NPM已成功更新"
-			exit 0
-		else
-    		echo "$directory目录不存在，更新个毛啊！？"
-			exit 1
-		fi
+            cd /root/data/docker_data/npm
+            docker-compose down
+            cp -r /root/data/docker_data/npm /root/data/docker_data/npm.archive  # 万事先备份，以防万一
+            docker-compose pull
+            docker-compose up -d
+            docker image prune
+            echo "完成，NPM已成功更新"
+            exit 0
+        else
+            echo "$directory目录不存在，更新个毛啊！？"
+            exit 1
+        fi
       ;;
-	  3)
+      3)
         directory="/root/data/docker_data/npm"
         if [ -d "$directory" ]; then
-        	echo "正在卸载NginxProxyManager，请稍等。。。"
-			cd /root/data/docker_data/npm
-			docker-compose down
-			rm -rf /root/data/docker_data/npm
-			docker image prune
-			echo "完成，NPM已成功卸载"
-			exit 0
-		else
-    		echo "$directory目录不存在，卸载个毛啊！？"
-			exit 1
-		fi
+            echo "正在卸载NginxProxyManager，请稍等。。。"
+            cd /root/data/docker_data/npm
+            docker-compose down
+            rm -rf /root/data/docker_data/npm
+            docker image prune
+            echo "完成，NPM已成功卸载"
+            exit 0
+        else
+            echo "$directory目录不存在，卸载个毛啊！？"
+            exit 1
+        fi
       ;;
-	  *)
-		exit 0
+      *)
+        exit 0
       ;;
     esac
 else
