@@ -12,3 +12,8 @@ bash <(curl -s https://raw.githubusercontent.com/kyleyh838/ShellScript/main/qbit
 ```
 bash <(curl -s https://raw.githubusercontent.com/kyleyh838/ShellScript/main/Docker/start.sh)
 ```
+
+## NginxProxyManager
+```
+bash <(curl -s https://raw.githubusercontent.com/kyleyh838/ShellScript/main/NginxProxyManager/start.sh)
+```
