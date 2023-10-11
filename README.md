@@ -7,3 +7,8 @@
 ```
 bash <(curl -s https://raw.githubusercontent.com/kyleyh838/ShellScript/main/qbittorrent-nox/start.sh)
 ```
+
+## Docker & Docker-compose
+```
+bash <(curl -s https://raw.githubusercontent.com/kyleyh838/ShellScript/main/Docker/start.sh)
+```
