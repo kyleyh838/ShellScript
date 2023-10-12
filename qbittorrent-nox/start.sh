@@ -13,9 +13,9 @@ echo "一键脚本合集GitHub开源地址：https://github.com/kyleyh838/ShellS
 # check root
 [[ $EUID -ne 0 ]] && echo -e "${red}Error：${plain} 当前不是root用户，无法执行脚本，请切换root用户后重新执行！\n" && exit 1
 
-echo "${yellow}正在安装qbittorrent-nox，请稍等。。。${plain}"
+echo -e "${yellow}正在安装qbittorrent-nox，请稍等。。。${plain}"
 apt update -y && apt upgrade -y
-apt-get install software-properties-common -y
+apt install software-properties-common -y
 add-apt-repository ppa:qbittorrent-team/qbittorrent-stable
 apt update -y
 apt install qbittorrent-nox=1:4.3.9.99~202110311443-7435-01519b5e7~ubuntu20.04.1 -y
@@ -40,5 +40,5 @@ systemctl start qbittorrent-nox
 
 clear
 echo "恭喜，qbittorrent-nox 4.3.9安装成功！"
-echo -e "Web-UI访问地址http://ip:8088\n默认用户名密码：admin adminadmin"
+echo -e "Web-UI访问地址：http://ip:8088\n默认用户名密码：admin adminadmin"
 exit 0

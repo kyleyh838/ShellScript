@@ -15,15 +15,15 @@ echo "一键脚本合集GitHub开源地址：https://github.com/kyleyh838/ShellS
 
 clear
 echo "请选择需要执行的操作："
-echo "${green}1.安装Docker${plain}"
-echo "${green}2.安装Docker-compose${plain}"
-echo "${green}0.退出脚本${plain}"
+echo -e "${green}1.安装Docker${plain}"
+echo -e "${green}2.安装Docker-compose${plain}"
+echo -e "${green}0.退出脚本${plain}"
 
 read choice
 
 case $choice in
   1)
-    echo "${yellow}即将安装Docker，请稍等。。。${plain}"
+    echo -e "${yellow}即将安装Docker，请稍等。。。${plain}"
     apt update -y && apt install wget -y
     wget -qO- get.docker.com | bash
     systemctl enable docker
@@ -34,7 +34,7 @@ case $choice in
     exit 0
   ;;
   2)
-    echo "${yellow}即将安装Docker-compose，请稍等。。。${plain}"
+    echo -e "${yellow}即将安装Docker-compose，请稍等。。。${plain}"
     apt update -y
     curl -L "https://github.com/docker/compose/releases/latest/download/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
     chmod +x /usr/local/bin/docker-compose
