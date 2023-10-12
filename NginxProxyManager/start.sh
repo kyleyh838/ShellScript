@@ -77,8 +77,8 @@ services:
         echo "默认用户名密码:admin@example.com changeme"
         exit 0
     else
-        echo -e "${red}Error:${plain}$docker_installed，$docker_compose_installed"
-        echo "是否运行Docker&Docker-compose安装脚本？(y/n):"
+        echo -e "${red}Error:${plain}$docker_installed，$docker_compose_installed，无法安装NPM。"
+        echo "是否运行Docker&Docker-compose安装脚本？[y/n]:"
 
         read choice1
         case $choice1 in
