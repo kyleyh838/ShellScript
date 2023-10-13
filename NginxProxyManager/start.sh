@@ -34,7 +34,7 @@ case $choice in
     fi
     if command -v docker &> /dev/null && command -v docker-compose &> /dev/null; then
         echo -e "${yellow}正在安装NginxProxyManager，请稍等。。。${plain}"
-		apt update -y && apt install -y net-tools
+        apt update -y && apt install -y net-tools
         mkdir -p /root/data/docker_data/npm
         cd /root/data/docker_data/npm
         if ss -tln | grep -q ':80 '; then
