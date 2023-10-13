@@ -60,8 +60,7 @@ services:
             read bot_token
             echo -e "${green}请输入管理员TG-ID：${plain}"
             read tg_id
-            echo -e "${yellow}请输入qBit-WebUI完整地址：${plain}"
-            echo -e "${yellow}格式示例：http://127.0.0.1:8888/${plain}"
+            echo -e "${yellow}请输入qBit-WebUI完整地址：\n格式示例：http://127.0.0.1:8888/${plain}"
             read ui_addr
             echo -e "${green}请输入qBit用户名：${plain}"
             read qb_user
@@ -118,7 +117,7 @@ altspeed_presets = [
     fi
     if [[ x"${choice}" == x"2" ]]; then
         echo -e "${red}Warning:本操作将会彻底删除qbittorrent-bot资料夹！${plain}\n是否继续卸载？[y/n]:"
-		read  uninst
+        read  uninst
         if [[ x"${uninst}" == x"y" || x"${uninst}" == x"Y" ]]; then
             echo -e "${yellow}正在卸载qbittorrent-bot，请稍等。。。${plain}"
             ContainerID=`docker ps|grep 0one2/qbittorrent-bot|awk '{print $1}'`
