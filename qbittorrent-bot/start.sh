@@ -11,7 +11,7 @@ echo "请确认已切换root用户执行脚本"
 echo "一键脚本合集GitHub开源地址：https://github.com/kyleyh838/ShellScript"
 
 # check root
-[[ $EUID -ne 0 ]] && echo -e "${red}Error：${plain} 当前不是root用户，无法执行脚本，请切换root用户后重新执行！\n" && exit 1
+[[ $EUID -ne 0 ]] && echo -e "${red}Error：当前不是root用户，无法执行脚本，请切换root用户后重新执行！${plain}\n" && exit 1
 
 echo
 echo "请选择需要执行的操作："
@@ -32,7 +32,7 @@ read choice
         fi
         if command -v docker &> /dev/null && command -v docker-compose &> /dev/null; then
             echo -e "${yellow}正在安装qbittorrent-bot，请稍等。。。${plain}"
-            apt install wget -y
+            apt install -y wget
             mkdir /root/qbot
             file_to_edit="/root/qbot/docker-compose.yml"
             echo "version: '3'
