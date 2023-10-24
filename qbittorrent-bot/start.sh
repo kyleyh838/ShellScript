@@ -49,12 +49,12 @@ services:
       - TZ=Asia/Shanghai   
     restart: unless-stopped  " > "$file_to_edit"
             cd /home
-            wget -O qbot.tar.gz https://raw.githubusercontent.com/kyleyh838/ShellScript/main/qbittorrent-bot/qbot-zh.tar.gz
+            wget -O qbot.tar.gz https://github.com/kyleyh838/ShellScript/releases/download/qbot/qBittorrent-bot-zh.tar.gz
             tar -zxvf "qbot.tar.gz" --overwrite
             rm "qbot.tar.gz"
             cd /root/qbot
             docker-compose up -d
-            mv /home/qbittorrent-bot/app/config.example.toml /home/qbittorrent-bot/app/config.toml
+            cp /home/qbittorrent-bot/app/config.example.toml /home/qbittorrent-bot/app/config.toml
             clear
             echo -e "${yellow}请输入TG-BOT Token：${plain}"
             read bot_token
